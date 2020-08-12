@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react';
+import { connect, useSelector } from 'react-redux'
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-const App = () => {
+const App = (props) => {
   // const state = {
   //   additionalPrice: 0,
   //   car: {
@@ -23,19 +23,9 @@ const App = () => {
   //     { id: 4, name: 'Rear spoiler', price: 250 }
   //   ]
   // };
-
-  const car = useSelector(
-    state => state.car
+  const { car, additionalFeatures, additionalPrice } = useSelector(
+    (state) => state
   )
-  const additionalFeatures = useSelector(
-    state => state.additionalFeatures
-  )
-
-  const additionalPrice = useSelector(
-    state => state.additionalPrice
-  )
-
-  console.log(car)
 
   return (
     <div className="boxes">
